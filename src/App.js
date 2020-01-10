@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
-function App() {
+const parseTime = time => {
+  const parsed = parseInt(time, 10);
+  if (isNaN(parsed)) return 0;
+  return parsed;
+};
+
+const App = () => {
+  const [hours, setHours] = useState(0)
+  const [minutes, setMinutes] = useState(0)
+  const [seconds, setSeconds] = useState(0)
+
+  const result = hours + minutes / 60 + seconds / (60 * 60)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <input id="hours" type="text" value={hours} onChange={e => setHours(parseTime(e.target.value, 10))} />
+        <input id="minutes" type="text" value={minutes} onChange={e => setMinutes(parseTime(e.target.value, 10))} />
+        <input id="seconds" type="text" value={seconds} onChange={e => setSeconds(parseTime(e.target.value, 10))} />
+      </div>
+      <br />
+      <div>
+        <pre>{result} h</pre>
+      </div>
     </div>
   );
 }
