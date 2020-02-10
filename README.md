@@ -1,3 +1,8 @@
+# timeconvert
+
+WebExtension built with React to convert times to decimal values.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
