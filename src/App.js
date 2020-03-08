@@ -1,5 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import "./photon-extension-kit.css";
+import "./App.css";
 
 const parseTime = time => {
   const parsed = parseInt(time, 10);
@@ -11,16 +13,19 @@ const App = () => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    document.getElementById('hours').focus();
+    document.getElementById("hours").focus();
   }, []);
 
-  const result = hours + minutes / 60 + seconds / (60 * 60);
+  const result = Number.parseFloat(hours + minutes / 60 + seconds / (60 * 60));
+  const parsedResult = result > 0 ? result.toPrecision(4) : 0;
 
   return (
     <div className="App">
-      <div>
+      <h1>Convert time to h</h1>
+      <div className="browser-style">
         <input
           id="hours"
           type="text"
@@ -41,8 +46,13 @@ const App = () => {
         />
       </div>
       <br />
-      <div>
-        <pre>{result} h</pre>
+      <div className="browser-style">
+        <CopyToClipboard text={parsedResult} onCopy={() => setCopied(true)}>
+          <button className="browser-style default">
+            <span>{parsedResult} h</span>
+          </button>
+        </CopyToClipboard>
+        {copied ? <p style={{ color: "green" }}>Copied.</p> : null}
       </div>
     </div>
   );
