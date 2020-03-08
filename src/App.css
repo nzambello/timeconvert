@@ -1,5 +1,5 @@
 .App {
-    /* padding: 1rem; */
+    padding: 1rem;
 }
 
 .App * {
@@ -10,6 +10,7 @@ h1 {
     font-size: 36px;
     font-weight: 300;
     color: #0c0c0d;
+    margin-top: 0;
 }
 
 .browser-style button.browser-style {
