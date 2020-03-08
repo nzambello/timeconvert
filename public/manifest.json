@@ -9,6 +9,11 @@
   },
   "browser_action": {
     "default_icon": "logo192.png",
+    "theme_icons": [{
+        "light": "logo192.png",
+        "dark": "logo192.png",
+        "size": 192
+    }],
     "default_title": "TimeConvert",
     "default_popup": "index.html",
     "browser_style": true
