@@ -7,6 +7,12 @@
     "192": "logo192.png",
     "512": "logo512.png"
   },
+  "homepage_url": "https://github.com/nzambello/timeconvert",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{a54ce314-67ca-498f-ba4e-9192a392ec79}"
+    }
+  },
   "browser_action": {
     "default_icon": "logo192.png",
     "theme_icons": [{
